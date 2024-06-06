@@ -27,7 +27,6 @@
     </LinearLayout>
 
     <TextView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Texto"
@@ -36,9 +35,11 @@
         android:layout_marginTop="30dp"/>
 
     <Button
+        android:id="@+id/btnApplyTheme"
         android:layout_width="150dp"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:layout_marginStart="130dp"
         android:text="@string/Boton"/>
 </LinearLayout>
+

@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme3" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowBackground">@drawable/azul</item>
         <item name="colorPrimary">@color/colorPrimary3</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark3</item>
-        <item name="colorAccent">@color/colorAccent3</item>
+        <item name="android:buttonStyle">@style/ButtonStyle3</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">20sp</item>
         <item name="android:typeface">monospace</item>
     </style>
+
+    <style name="ButtonStyle3" parent="Widget.AppCompat.Button">
+        <item name="android:background">#3F51B5</item>
+    </style>
+
 </resources>

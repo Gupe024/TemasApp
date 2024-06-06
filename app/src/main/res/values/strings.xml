@@ -1,7 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TemasApp</string>
     <string name="Seleccionar_tema">Seleccionar tema:</string>
     <string name="Texto">A la mañana siguiente, al despertar, se encontró con una bandeja con una cafetera caliente y fruta. Desayunó antes de partir y buscó por el castillo a quién le había dado cobijo para agradecerle su hospitalidad, pero no encontró a nadie.</string>
-    <string name="Boton">APLICAR</string>
-
+    <string name="Boton">PRUEBA</string>
+    <string-array name="themes_array">
+        <item>Seleccionar</item>
+        <item>Theme1</item>
+        <item>Theme2</item>
+        <item>Theme3</item>
+    </string-array>
 </resources>
