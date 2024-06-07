@@ -8,6 +8,9 @@
 
     <color name="colorPrimary3">#00BCD4</color>
     <color name="colorPrimaryDark3">#03A9F4</color>
+    
+    <color name="colorPrimary">@color/black</color>
+    <color name="colorPrimaryDark">@color/black</color>
 
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>

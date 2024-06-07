@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d("MainActivity", "Default theme applied");
 
-                recreate();
+                recreateWithTheme(R.style.AppTheme);
             }
         });
     }
@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                         themeId = R.style.Theme3;
                         break;
                     default:
-
                         return;
                 }
 
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 editor.putInt("selected_theme", themeId);
                 editor.apply();
 
-                recreate();
+                recreateWithTheme(themeId);
             }
 
             @Override
@@ -85,5 +84,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void recreateWithTheme(int themeId) {
+        setTheme(themeId);
+        setContentView(R.layout.activity_main);
+        setupSpinner();
     }
 }
