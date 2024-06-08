@@ -1,48 +1,31 @@
 package com.example.temasapp;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     Spinner spinner;
-    Button ThemeButton;
-    SharedPreferences preferences;
+
+    // Variable estática para mantener el tema seleccionado
+    static int selectedTheme = R.style.Tema_basico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        preferences = getSharedPreferences("theme_prefs", MODE_PRIVATE);
-        int selectedTheme = preferences.getInt("selected_theme", R.style.AppTheme);
+        // Aplicar el tema seleccionado
         setTheme(selectedTheme);
 
         setContentView(R.layout.activity_main);
         spinner = findViewById(R.id.spinner);
-        ThemeButton = findViewById(R.id.btnApplyTheme);
 
         setupSpinner();
-
-        ThemeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("MainActivity", "Button clicked");
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.remove("selected_theme");
-                editor.apply();
-
-                Log.d("MainActivity", "Default theme applied");
-
-                recreateWithTheme(R.style.AppTheme);
-            }
-        });
     }
 
     private void setupSpinner() {
@@ -54,41 +37,49 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                String selectedTheme = (String) parentView.getItemAtPosition(position);
-                Log.d("MainActivity", "Selected Theme: " + selectedTheme);
+                String selectedThemeName = (String) parentView.getItemAtPosition(position);
+                Log.d("MainActivity", "Selected Theme: " + selectedThemeName);
 
-                int themeId;
-                switch (selectedTheme) {
-                    case "Theme1":
-                        themeId = R.style.Theme1;
+                int newTheme;
+                switch (selectedThemeName) {
+                    case "Seleccionar":
+                        // No hacer nada si se selecciona "Seleccionar"
+                        return;
+                    case "Tema_basico":
+                        newTheme = R.style.Tema_basico;
                         break;
-                    case "Theme2":
-                        themeId = R.style.Theme2;
+                    case "Tema_morado":
+                        newTheme = R.style.Tema_morado;
                         break;
-                    case "Theme3":
-                        themeId = R.style.Theme3;
+                    case "Tema_naranja":
+                        newTheme = R.style.Tema_naranja;
+                        break;
+                    case "Tema_azulado":
+                        newTheme = R.style.Tema_azulado;
                         break;
                     default:
                         return;
                 }
 
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putInt("selected_theme", themeId);
-                editor.apply();
-
-                recreateWithTheme(themeId);
+                // Verificar si el nuevo tema es diferente al tema actual
+                if (newTheme != selectedTheme) {
+                    selectedTheme = newTheme;
+                    // Aplicar el nuevo tema
+                    recreateWithTheme(selectedTheme);
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-
+                // No hacer nada si no se selecciona nada
             }
         });
     }
 
+    // Método para recrear la actividad con un nuevo tema
     private void recreateWithTheme(int themeId) {
         setTheme(themeId);
-        setContentView(R.layout.activity_main);
-        setupSpinner();
+        recreate(); // Recrear la actividad para aplicar el nuevo tema a toda la interfaz
     }
 }
+

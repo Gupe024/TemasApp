@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme2" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Tema_naranja" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowBackground">@drawable/orange</item>
         <item name="colorPrimary">@color/colorPrimary2</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark2</item>

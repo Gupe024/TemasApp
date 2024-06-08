@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme3" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Tema_azulado" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowBackground">@drawable/azul</item>
         <item name="colorPrimary">@color/colorPrimary3</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark3</item>

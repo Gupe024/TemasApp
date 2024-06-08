@@ -6,8 +6,9 @@
     <string name="Boton">PRUEBA</string>
     <string-array name="themes_array">
         <item>Seleccionar</item>
-        <item>Theme1</item>
-        <item>Theme2</item>
-        <item>Theme3</item>
+        <item>Tema_basico</item>
+        <item>Tema_morado</item>
+        <item>Tema_naranja</item>
+        <item>Tema_azulado</item>
     </string-array>
 </resources>
