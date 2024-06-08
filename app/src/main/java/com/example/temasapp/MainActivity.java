@@ -12,14 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     Spinner spinner;
 
-    // Variable estática para mantener el tema seleccionado
     static int selectedTheme = R.style.Tema_basico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Aplicar el tema seleccionado
         setTheme(selectedTheme);
 
         setContentView(R.layout.activity_main);
@@ -43,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
                 int newTheme;
                 switch (selectedThemeName) {
                     case "Seleccionar":
-                        // No hacer nada si se selecciona "Seleccionar"
                         return;
                     case "Tema_basico":
                         newTheme = R.style.Tema_basico;
@@ -61,25 +58,22 @@ public class MainActivity extends AppCompatActivity {
                         return;
                 }
 
-                // Verificar si el nuevo tema es diferente al tema actual
                 if (newTheme != selectedTheme) {
                     selectedTheme = newTheme;
-                    // Aplicar el nuevo tema
                     recreateWithTheme(selectedTheme);
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                // No hacer nada si no se selecciona nada
+
             }
         });
     }
 
-    // Método para recrear la actividad con un nuevo tema
     private void recreateWithTheme(int themeId) {
         setTheme(themeId);
-        recreate(); // Recrear la actividad para aplicar el nuevo tema a toda la interfaz
+        recreate();
     }
 }
 
